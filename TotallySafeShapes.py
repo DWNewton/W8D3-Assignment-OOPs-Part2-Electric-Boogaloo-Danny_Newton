@@ -6,10 +6,12 @@ class Shape:
         self.color = color
 
     def calculate_area(self):
+    # #@&*#$ We actually have to raise these before the subclasses, or the python gods get angry.
+    # ...good thing I read the .pdf
         raise NotImplementedError("This method is overridden by subclasses. Or maybe it got lost in space.")
 
     def calculate_perimeter(self):
-        raise NotImplementedError("This method is overridden by subclasses. Or maybe it's just hiding.")
+        raise NotImplementedError("This method is overridden by subclasses. Or not...")
 
     def get_color(self):
         # Get the color of the shape (in case we forget what color it was)
@@ -30,7 +32,7 @@ class Circle(Shape):
         return math.pi * (self.radius ** 2)
 
     def calculate_perimeter(self):
-        # Calculate the perimeter (circumference) of the circle (2πr - math is fun)
+        # Calculate the perimeter (circumference) of the circle (2πr ...mmm, delicious Pi.)
         return 2 * math.pi * self.radius
 
 
@@ -41,11 +43,11 @@ class Rectangle(Shape):
         self.width = width
 
     def calculate_area(self):
-        # Calculate the area of the rectangle (length * width - like arranging tiles)
+        # Area of a rectangle (length * width - like arranging tiles)
         return self.length * self.width
 
     def calculate_perimeter(self):
-        # Calculate the perimeter of the rectangle (2 * (length + width) - because who doesn't love brackets)
+        # Perimeter of a rectangle (2 * (length + width))
         return 2 * (self.length + self.width)
 
 
@@ -58,21 +60,21 @@ class Triangle(Shape):
 
     def calculate_area(self):
         # Had to go to https://www.britannica.com/science/Herons-formula to figure this one out.
-        # Calculate the area of the triangle using Heron's formula (it's a bit of a mouthful, but it's cool)
+        # Calculate area of a triangle using Heron's formula
         s = (self.side1 + self.side2 + self.side3) / 2
         return math.sqrt(s * (s - self.side1) * (s - self.side2) * (s - self.side3))
 
     def calculate_perimeter(self):
-        # Calculate the perimeter of the triangle (side1 + side2 + side3 - just add them up)
+        # Calculate perimeter of triangle (side1 + side2 + side3 - just add them up)
         return self.side1 + self.side2 + self.side3
 
 
 if __name__ == "__main__":
     # Create some colorful shapes with highly precise dimensions
     shapes = [
-        Circle("Red", 42),
-        Rectangle("Blue", 23, 19),
-        Triangle("Green", 15, 20, 25)
+        Circle("red", 42),
+        Rectangle("blue", 23, 19),
+        Triangle("green", 15, 20, 25)
     ]
 
     # Iterate over the list of shapes and show off their amazing attributes
