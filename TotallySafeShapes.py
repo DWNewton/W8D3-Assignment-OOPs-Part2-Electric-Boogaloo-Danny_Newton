@@ -57,6 +57,7 @@ class Triangle(Shape):
         self.side3 = side3
 
     def calculate_area(self):
+        # Had to go to https://www.britannica.com/science/Herons-formula to figure this one out.
         # Calculate the area of the triangle using Heron's formula (it's a bit of a mouthful, but it's cool)
         s = (self.side1 + self.side2 + self.side3) / 2
         return math.sqrt(s * (s - self.side1) * (s - self.side2) * (s - self.side3))
@@ -67,16 +68,17 @@ class Triangle(Shape):
 
 
 if __name__ == "__main__":
-    # Let's create some colorful shapes with highly precise dimensions
+    # Create some colorful shapes with highly precise dimensions
     shapes = [
         Circle("Red", 42),
         Rectangle("Blue", 23, 19),
-        Triangle("Green", 13, 14, 15)
+        Triangle("Green", 15, 20, 25)
     ]
 
     # Iterate over the list of shapes and show off their amazing attributes
     for shape in shapes:
-        print(f"A {shape.get_color()} shape:")
+        shape_type = type(shape).__name__.lower()
+        print(f"A {shape.get_color()} {shape_type}:")
         print(f" - Area: {shape.calculate_area():.2f}")
         print(f" - Perimeter: {shape.calculate_perimeter():.2f}")
         print()  # Just a line break to keep things tidy
